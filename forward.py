@@ -48,4 +48,4 @@ class ForTheMugPlugin(plugin.HuttonHelperPlugin):
         event_path = self.event_paths.get(event)
 
         if event_path:
-            xmit.post(xmit_path, data=data, parse=False, headers=xmit.COMPRESSED_OCTET_STREAM)
+            xmit.post(event_path, data=data, parse=False, headers=xmit.COMPRESSED_OCTET_STREAM)
