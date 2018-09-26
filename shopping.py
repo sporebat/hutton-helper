@@ -22,6 +22,15 @@ STALE_AFTER_SECONDS = 5
 
 TEST_EVENTS = [
     {
+        'event': 'FSDJump',
+        'StarSystem': 'Col 285 Sector YF-M c8-8',
+    },
+    {
+        'event': 'Docked',
+        'StationName': 'Lopez de Villalobos Plant',
+        'StarSystem': 'Col 285 Sector YF-M c8-8',
+    },
+    {
         'event': 'Cargo',
         'Inventory': [{
             'Count': 4,
@@ -30,40 +39,56 @@ TEST_EVENTS = [
         }],
     },  # hidden
     {
+        'event': 'Cargo',
+        'Inventory': []
+    },  # hidden
+    {
         'event': 'MissionAccepted',
         'Commodity_Localised': 'Uranium',
         'Commodity': '$Uranium_Name',
         'Count': 25,
+        'DestinationStation': 'Lopez de Villalobos Plant',
+        'DestinationSystem': 'Col 285 Sector YF-M c8-8',
         'MissionID': 415110664,
         'Name': 'Mission_Collect',
-    },  # 25, 4
+    },  # 25, 0
     {
         'event': 'MissionAccepted',
         'Commodity_Localised': 'Uranium',
         'Commodity': '$Uranium_Name',
         'Count': 23,
+        'DestinationStation': 'Lopez de Villalobos Plant',
+        'DestinationSystem': 'Col 285 Sector YF-M c8-8',
         'MissionID': 415110665,
         'Name': 'Mission_Collect',
-    },  # 48, 4
+    },  # 48, 0
     {
         'event': 'MissionAccepted',
         'Commodity_Localised': 'Uranium',
         'Commodity': '$Uranium_Name',
         'Count': 22,
+        'DestinationStation': 'Lopez de Villalobos Plant',
+        'DestinationSystem': 'Col 285 Sector YF-M c8-8',
         'MissionID': 415110666,
         'Name': 'Mission_Collect',
-    },  # 70, 4
+    },  # 70, 0
     {
         'event': 'MissionAccepted',
         'Commodity_Localised': 'Uranium',
         'Commodity': '$Uranium_Name',
         'Count': 2,
+        'DestinationStation': 'Lopez de Villalobos Plant',
+        'DestinationSystem': 'Col 285 Sector YF-M c8-8',
         'MissionID': 415110667,
         'Name': 'Mission_Collect',
-    },  # 72, 4
+    },  # 72, 0
+    {
+        'event': 'FSDJump',
+        'StarSystem': 'Ross 671',
+    },
     {
         'event': 'MarketBuy',
-        'Count': 27,
+        'Count': 31,
         'Type_Localised': 'Uranium',
         'Type': 'uranium',
     },  # 72, 31
@@ -73,6 +98,15 @@ TEST_EVENTS = [
         # 'Type_Localised': 'Uranium',  # sometimes, we don't get it
         'Type': 'uranium',
     },  # 72, 72
+    {
+        'event': 'FSDJump',
+        'StarSystem': 'Col 285 Sector YF-M c8-8',
+    },
+    {
+        'event': 'Docked',
+        'StationName': 'Lopez de Villalobos Plant',
+        'StarSystem': 'Col 285 Sector YF-M c8-8',
+    },
     {
         'event': 'CargoDepot',
         'Count': 25,
@@ -93,6 +127,9 @@ TEST_EVENTS = [
         'Type_Localised': 'Uranium',
         'Type': 'uranium',
     },  # 47, 46
+    {
+        'event': 'Undocked',
+    },
     {
         'event': 'EjectCargo',
         'Count': 1,
@@ -122,9 +159,164 @@ TEST_EVENTS = [
         'event': 'Missions',
         'Active': [],
     },  # 0, 0
+    {
+        'event': 'Docked',
+        'StationName': 'Lopez de Villalobos Plant',
+        'StarSystem': 'Col 285 Sector YF-M c8-8',
+    },
+    {
+        'event': 'MissionAccepted',
+        'Commodity': '$Liquor_Name;',
+        'Commodity_Localised': 'Liquor',
+        'Count': 144,  # gross
+        'DestinationSystem': 'Ross 671',
+        'DestinationStation': 'Matheson Terminal',
+        'MissionID': 415110629,
+        'Name': 'Mission_Delivery_Democracy',
+    },
+    {
+        'event': 'MissionAccepted',
+        'DestinationSystem': 'Ross 671',
+        'DestinationStation': 'Matheson Terminal',
+        'MissionID': 417799745,
+        'Name': 'Mission_Courier_Boom',
+    },
+    {
+        'event': 'CargoDepot',
+        'CargoType': 'Liquor',
+        'ItemsCollected': 72,
+        'MissionID': 415110629,
+        'UpdateType': 'Collect',
+        'Count': 72,
+        'ItemsDelivered': 0,
+        'TotalItemsToDeliver': 144,
+    },
+    {
+        'event': "Undocked"
+    },
+    {
+        'event': 'FSDJump',
+        'StarSystem': 'Ross 671',
+    },
+    {
+        'event': 'Docked',
+        'StationName': 'Matheson Terminal',
+        'StarSystem': 'Ross 671',
+    },
+    {
+        'event': 'MissionCompleted',
+        'MissionID': 417799745,
+    },
+    {
+        'event': 'CargoDepot',
+        'CargoType': 'Liquor',
+        'Count': 72,
+        'ItemsCollected': 72,
+        'ItemsDelivered': 72,
+        'MissionID': 415110629,
+        'TotalItemsToDeliver': 144,
+        'UpdateType': 'Deliver',
+    },
+    {
+        'event': "Undocked"
+    },
+    {
+        'event': 'FSDJump',
+        'StarSystem': 'Col 285 Sector YF-M c8-8',
+    },
+    {
+        'event': 'Docked',
+        'StationName': 'Lopez de Villalobos Plant',
+        'StarSystem': 'Col 285 Sector YF-M c8-8',
+    },
+    {
+        'event': 'CargoDepot',
+        'CargoType': 'Liquor',
+        'ItemsCollected': 72,
+        'MissionID': 415110629,
+        'UpdateType': "Collect",
+        "Count": 72,
+        "ItemsDelivered": 72,
+        "TotalItemsToDeliver": 144,
+    },
+    {
+        'event': "Undocked"
+    },
+    {
+        'event': 'FSDJump',
+        'StarSystem': 'Ross 671',
+    },
+    {
+        'event': 'Docked',
+        'StationName': "Cayley Enterprise",
+        'StarSystem': 'Ross 671',
+    },
+    {
+        'event': 'CargoDepot',
+        'CargoType': 'Liquor',
+        'Count': 72,
+        'ItemsCollected': 144,
+        'ItemsDelivered': 144,
+        'MissionID': 415110629,
+        'TotalItemsToDeliver': 144,
+        'UpdateType': 'Deliver',
+    },
+    {
+        'event': 'MissionCompleted',
+        'MissionID': 415110629,
+    },
+    {
+        'event': 'MissionAccepted',
+        'Commodity_Localised': 'Uranium',
+        'Commodity': '$Uranium_Name',
+        'Count': 2,
+        'DestinationSystem': 'Col 285 Sector YF-M c8-8',  # Wolf 359
+        'DestinationStation': 'Lopez de Villalobos Plant',  # Powell High
+        'MissionID': 415110630,
+        'Name': 'Mission_Delivery_Antelope',
+    },
+    {
+        'event': 'CargoDepot',
+        'CargoType': "Uranium",
+        'Count': 2,
+        'ItemsCollected': 2,
+        'ItemsDelivered': 0,
+        'MissionID': 415110630,
+        'TotalItemsToDeliver': 2,
+        'UpdateType': 'Collect',
+    },
+    {
+        'event': 'MissionAbandoned',
+        'MissionID': 415110630,
+    },
+    {
+        'event': 'EjectCargo',
+        'Count': 2,
+        'Type_Localised': 'Uranium',
+        'Type': 'uranium',
+    }
 ]
 
+MISSION_COLLECT_PREFIXES = set([
+    'mission_collect',
+    'mission_mining',
+    'mission_passengervip',
+])
+MISSION_DELIVER_PREFIXES = set([
+    'mission_deliver',
+    'mission_courier',
+])
 LOCALISATION_CACHE = {}
+
+
+def _has_prefix_in(name, prefixes):
+    "Return ``True`` if ``name`` starts with a prefix in ``prefixes``. Drags to lower case."
+
+    for prefix in prefixes:
+        if name.lower().startswith(prefix.lower()):
+            return True
+
+    return False
 
 
 def _extract_commodity(entry):
@@ -145,14 +337,18 @@ def _extract_commodity(entry):
     elif 'Name' in entry and 'event' not in entry:  # Cargo event Inventory entry
         return entry['Name'], entry.get('Name_Localised')
 
+    elif entry.get('event') == 'MissionAccepted' and entry['Name'].lower().startswith('mission_courier'):
+        return 'Data', 'Data'
+
     sys.stderr.write("Entry: {}\r\n", entry)
     raise AssertionError("could not extract commodity details from entry")
 
 
-def extract_commodity(entry):
+def extract_commodity(entry, mission_specific=False):
     "Get the commodity type and localised description from an ``event`` entry, caching descriptions."
 
     commodity, commodity_localised = _extract_commodity(entry)
+    mission_id = entry.get('MissionID')
 
     if commodity:
         commodity = commodity.lower()
@@ -162,6 +358,9 @@ def extract_commodity(entry):
 
         if commodity_localised is not None and commodity not in LOCALISATION_CACHE:
             LOCALISATION_CACHE[commodity] = commodity_localised
+
+        if mission_specific and 'MissionID' in entry:
+            commodity = '{}/{}'.format(commodity, mission_id)
 
     return commodity, commodity_localised
 
@@ -174,9 +373,11 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
 
         plugin.HuttonHelperPlugin.__init__(self, helper)
         self.table_frame = None
-        self.missions = []
+        self.missions = {}
         self.cargo = {}
         self.visible_count = 0
+        self.system = None
+        self.station = None
 
     def plugin_app(self, parent):
         "Called once to get the plugin widget. Return a ``tk.Frame``."
@@ -187,7 +388,8 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
 
         self.table_frame = tk.Frame(frame)
         self.table_frame.grid(sticky=tk.EW)
-        self.table_frame.columnconfigure(0, weight=1)
+        self.table_frame.columnconfigure(0, weight=1)  # commodity
+        self.table_frame.columnconfigure(4, weight=1)  # next stop
 
         enabled = self.helper.prefs.setdefault(CFG_SHOW_SHOPPING, True)
         self.enabled_intvar = tk.IntVar(value=1 if enabled else 0)
@@ -208,7 +410,9 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
             entry = entries.pop(0)
             print '=== replay', entry
             self.journal_entry(None, False, None, None, entry, None)
-            self.table_frame.after(500, self.__replay, entries)
+            print '    MISSIONS:', self.missions
+            print '    CARGO:', self.cargo
+            self.table_frame.after(2000, self.__replay, entries)
 
     def journal_entry(self, cmdr, _is_beta, _system, _station, entry, _state):
         "Act like a tiny EDMC plugin."
@@ -232,18 +436,38 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
     def event_cargodepot(self, entry):
         "Handle ``CargoDepot``."
 
-        for mission in self.missions:
-            if mission['mission_id'] == entry['MissionID']:
+        for mission_id, mission in self.missions.items():
+            if mission_id == entry['MissionID']:
                 mission['remaining'] = entry['TotalItemsToDeliver'] - entry['ItemsDelivered']
 
+        mission = self.missions.get(entry['MissionID'])
+        commodity, _ = extract_commodity(entry, mission_specific=mission['is_delivery'])
+
         if 'Count' in entry and 'CargoType' in entry:
-            # absent if a wing member dropped something off
-            commodity, _desc = extract_commodity(entry)
-            count = entry['Count']
-            self.cargo[commodity] -= count
+            if entry['UpdateType'] == 'Deliver':
+                self.__remove_cargo(commodity, entry['Count'])
+            elif entry['UpdateType'] == 'Collect':
+                self.__add_cargo(commodity, entry['Count'])
+
+    def event_docked(self, entry):
+        "Handle ``Docked``."
+
+        self.station = entry['StationName']
+        self.system = entry['StarSystem']
+
+    def event_undocked(self, entry):
+        "Handle ``Undocked``."
+
+        self.station = None
+
+    def event_fsdjump(self, entry):
+        "Handle ``FSDJump``."
+
+        self.system = entry['StarSystem']
+        self.station = None
 
     def event_ejectcargo(self, entry):
-        "Handle ``EjectCargo``."
+        "Handle ``EjectCargo``. "
 
         commodity, _desc = extract_commodity(entry)
         self.__remove_cargo(commodity, entry['Count'])
@@ -280,22 +504,37 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
     def event_missionaccepted(self, entry):
         "Handle ``MissionAccepted``."
 
-        for prefix in ['mission_collect', 'mission_passengervip', 'mission_mining']:
-            if entry['Name'].lower().startswith(prefix):
-                break
+        mission_name = entry['Name']
 
-        else: # nothing broke
+        if not _has_prefix_in(mission_name, MISSION_COLLECT_PREFIXES | MISSION_DELIVER_PREFIXES):
             return
 
-        commodity, _desc = extract_commodity(entry)
-        remaining = entry['Count']
+        is_delivery = _has_prefix_in(mission_name, MISSION_DELIVER_PREFIXES)
+        commodity, _desc = extract_commodity(entry, mission_specific=is_delivery)
+        remaining = entry.get('Count', 1)
         mission_id = entry['MissionID']
 
-        self.missions.append(dict(
+        if commodity[:5] == 'data/':
+            self.__add_cargo(commodity, 1)
+
+        mission = dict(
             mission_id=mission_id,
             commodity=commodity,
             remaining=remaining,
-        ))
+            origin=dict(
+                system=self.system,
+                station=self.station
+            ),
+            is_delivery=is_delivery,
+        )
+
+        if 'DestinationStation' in entry:
+            mission['destination'] = dict(
+                system=entry['DestinationSystem'],
+                station=entry['DestinationStation']
+            )
+
+        self.missions[mission_id] = mission
 
     def event_missioncompleted(self, entry):
         "Handle ``MissionCompleted``."
@@ -307,6 +546,15 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
 
         self.__remove_mission(entry['MissionID'])
 
+    def __strip_mission_from_cargo(self, commodity):
+        "Strip the mission suffix from a commodity in our cargo."
+
+        count = self.cargo.get(commodity)
+        if count > 0:
+            self.__remove_cargo(commodity, count)
+            commodity = commodity.split('/')[0]
+            self.__add_cargo(commodity, count)
+
     def event_missionabandoned(self, entry):
         "Handle ``MissionAbandoned``."
 
@@ -315,7 +563,7 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
     def event_missions(self, entry):
         "Handle ``Missions``."
 
-        known = set(mission['mission_id'] for mission in self.missions)
+        known = set(self.missions)  # keys, i.e. mission_id
         active = set(mission['MissionID'] for mission in entry['Active'])
 
         for mission_id in known - active:
@@ -329,16 +577,24 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
     def __remove_cargo(self, commodity, count):
         "Remove some cargo."
 
-        count = self.cargo.get(commodity, 0) - count
-        if count < 0:
-            count = 0
-        self.cargo[commodity] = count
+        count = max(0, self.cargo.get(commodity, 0) - count)
+
+        if count == 0:
+            del self.cargo[commodity]
+
+        else:
+            self.cargo[commodity] = count
 
     def __remove_mission(self, mission_id):
         "Remove a mission."
 
-        self.missions = [mission for mission in self.missions
-                         if mission['mission_id'] != mission_id]
+        if mission_id in self.missions:
+            mission = self.missions[mission_id]
+            commodity = mission['commodity']
+            if commodity[:5] == 'data/':
+                self.__remove_cargo(commodity, self.cargo.get(commodity, 0))
+            self.__strip_mission_from_cargo(commodity)
+            del self.missions[mission_id]
 
     def refresh(self):
         "Refresh our display."
@@ -349,17 +605,17 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
             widget.destroy()
 
         by_com = {}
-        for mission in self.missions:
+        for mission in self.missions.values():
             by_com.setdefault(mission['commodity'], []).append(mission)
 
         def gridlabel(**kw):
             "Make a grid label."
             return ttk.Label(frame, style='HH.TLabel', **kw)
 
-        text = "Mission needs:" if len(self.missions) == 1 else "Missions need:"
+        text = "Mission needs:" if len(self.missions.keys()) == 1 else "Missions need:"
         gridlabel(text=text, anchor=tk.W).grid(row=0, column=0, sticky=tk.EW)
-        gridlabel(text="Remaining", anchor=tk.E).grid(row=0, column=1, sticky=tk.EW)
-        gridlabel(text="In Cargo", anchor=tk.E).grid(row=0, column=2, sticky=tk.EW)
+        gridlabel(text="Cargo", anchor=tk.CENTER).grid(row=0, column=1, columnspan=3, padx=5, sticky=tk.EW)
+        gridlabel(text="Next Stop", anchor=tk.E).grid(row=0, column=4, sticky=tk.EW)
 
         normal = ttk.Style().configure('HH.TLabel').get('font', 'TkDefaultFont')
         if isinstance(normal, str):
@@ -368,17 +624,85 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
         complete['overstrike'] = 1
 
         for row, commodity in enumerate(sorted(by_com), start=1):
-            description = LOCALISATION_CACHE.get(commodity, commodity.upper())
-            remaining = sum(mission['remaining'] for mission in by_com[commodity])
-            cargo = self.cargo.get(commodity, 0)
-            font = complete if cargo >= remaining else normal
+            mission_id = None
+            is_mission_commodity = False
+            commodity_key = commodity
+            if '/' in commodity:
+                commodity_key, mission_id = commodity.split('/')
+                mission_id = int(mission_id)
+                is_mission_commodity = True
+            else:
+                mission_ids = [m['mission_id'] for m in by_com[commodity]]
+                if mission_ids:
+                    mission_id = mission_ids[0]  # TODO closest, perhaps?
+
+            description = LOCALISATION_CACHE.get(commodity_key, commodity_key.upper())
+            if is_mission_commodity:
+                description = '{}*'.format(description)
+
+            remaining = sum(m['remaining'] for m in by_com[commodity])
+            count = self.cargo.get(commodity, 0)
+
+            font = normal # complete if count >= remaining else normal
+            count_text = '{:,.0f}'.format(count,)
+            remaining_text = '{:,.0f}'.format(remaining)
+            next_text = self.__next_stop(mission_id, count)
 
             gridlabel(text=description, anchor=tk.W, font=font).grid(row=row, column=0, sticky=tk.EW)
-            gridlabel(text='{:,.0f}'.format(remaining), anchor=tk.E, font=font).grid(row=row, column=1, sticky=tk.EW)
-            gridlabel(text='{:,.0f}'.format(cargo), anchor=tk.E, font=font).grid(row=row, column=2, sticky=tk.EW)
+            gridlabel(text=count_text, anchor=tk.E, font=font).grid(row=row, column=1, sticky=tk.E, padx=(10, 0))
+            gridlabel(text='/', anchor=tk.CENTER, font=font).grid(row=row, column=2, sticky=tk.EW)
+            gridlabel(text=remaining_text, anchor=tk.W, font=font).grid(row=row, column=3, sticky=tk.W, padx=(0, 10))
+
+            l = gridlabel(text=next_text, anchor=tk.E, font=font)
+            l.grid(row=row, column=4, sticky=tk.EW)
+
+            def on_click(_event, l=l, next_text=next_text):
+                "On a click, copy the text to the clipboard."
+                l.clipboard_clear()
+                l.clipboard_append(next_text)
+
+            l.bind('<Button-1>', on_click)
+
+            print description, count_text, '/', remaining_text, next_text
 
         self.__update_hidden()
         plugin.HuttonHelperPlugin.refresh(self)
+
+    def __next_stop(self, mission_id, count):
+        "Are we there yet?"
+
+        # TODO BUG: what if it's not mission cargo but we have some and there's a mission to collect it?
+
+        mission = self.missions.get(mission_id)
+        if not mission:
+            return '??'
+
+        if count:
+            key = 'destination'
+
+        elif mission['remaining'] == 0:
+            return "MISSION BOARD"
+
+        elif mission['is_delivery']:
+            key = 'origin'
+
+        else:
+            return "GO SHOPPING"
+
+        system = mission[key].get('system')
+        station = mission[key].get('station')
+
+        if system and self.system != system:
+            return system
+
+        elif station and self.station != station:
+            return station
+
+        elif self.system == system and self.station == station:
+            return "MISSION BOARD"
+
+        else:
+            return '??'
 
     def plugin_prefs(self, parent, cmdr, is_beta):
         "Called each time the user opens EDMC settings. Return an ``nb.Frame``."
