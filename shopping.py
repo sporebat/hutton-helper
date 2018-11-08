@@ -2,6 +2,7 @@
 You'd better stock up on land mines for that trip, Commander.
 """
 
+import copy
 import json
 import sys
 import time
@@ -158,7 +159,7 @@ TEST_EVENTS = [
     {
         'event': 'Missions',
         'Active': [],
-    },  # 0, 0
+    },  # 0, 2
     {
         'event': 'Docked',
         'StationName': 'Lopez de Villalobos Plant',
@@ -181,6 +182,32 @@ TEST_EVENTS = [
         'MissionID': 417799745,
         'Name': 'Mission_Courier_Boom',
     },
+    # relog: Missions, Cargo
+    {
+        'event': 'Missions',
+        'Active': [
+            {
+                'MissionID': 415110629,
+                'Name': 'Mission_Delivery_Democracy',
+                'PassengerMission': False,
+                'Expires': 166406
+            },
+            {
+                'MissionID': 417799745,
+                'Name': 'Mission_Courier_Boom',
+                'PassengerMission': False,
+                'Expires': 166406
+            }
+        ],
+    },  # 0, 2
+    {
+        'event': 'Cargo',
+        'Inventory': [{
+            'Count': 2,
+            'Name_Localised': 'Uranium',
+            'Name': 'uranium',
+        }]
+    },  # 0, 2
     {
         'event': 'CargoDepot',
         'CargoType': 'Liquor',
@@ -396,7 +423,7 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
         self.__update_hidden()
 
         # Uncomment the next line to replay TEST_EVENTS after startup:
-        # frame.after(5000, self.__replay, TEST_EVENTS)
+        frame.after(5000, self.__replay, TEST_EVENTS)
 
         return frame
 
@@ -408,11 +435,15 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
             # This line below is why this method is easier to copy and paste into
             # each plugin than to make generic enough to pull to the base class:
             entry = entries.pop(0)
-            print '=== replay', entry
+            print '\r\n=== replay', entry['event']
+            for key, value in entry.items():
+                if key != 'event':
+                    print '          ', key, value
+
             self.journal_entry(None, False, None, None, entry, None)
             print '    MISSIONS:', self.missions
             print '    CARGO:', self.cargo
-            self.table_frame.after(2000, self.__replay, entries)
+            self.table_frame.after(500, self.__replay, entries)
 
     def journal_entry(self, cmdr, _is_beta, _system, _station, entry, _state):
         "Act like a tiny EDMC plugin."
@@ -425,9 +456,10 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
     def event_cargo(self, entry):
         "Handle ``Cargo``."
 
-        self.cargo = {}
+        self.cargo = {}  # TODO don't remove mission data
 
-        # TODO this is by the lowercase version FFS
+        # TODO don't remove mission cargo unless it's impossible
+
         for item in entry['Inventory']:
             commodity, _desc = extract_commodity(item)
             count = item['Count']
@@ -475,7 +507,7 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
     def event_died(self, entry):
         "Handle ``Died``."
 
-        self.cargo = {}
+        self.cargo = {}  # TODO don't remove mission data
 
     def event_collectcargo(self, entry):
         "Handle ``CollectCargo``."
