@@ -423,7 +423,7 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
         self.__update_hidden()
 
         # Uncomment the next line to replay TEST_EVENTS after startup:
-        frame.after(5000, self.__replay, TEST_EVENTS)
+        frame.after(10000, self.__replay, TEST_EVENTS)
 
         return frame
 
@@ -456,7 +456,7 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
     def event_cargo(self, entry):
         "Handle ``Cargo``."
 
-        self.cargo = {}  # TODO don't remove mission data
+        self.__remove_physical_cargo()
 
         # TODO don't remove mission cargo unless it's impossible
 
@@ -507,7 +507,13 @@ class ShoppingListPlugin(plugin.HuttonHelperPlugin):
     def event_died(self, entry):
         "Handle ``Died``."
 
-        self.cargo = {}  # TODO don't remove mission data
+        self.__remove_physical_cargo()
+
+    def __remove_physical_cargo(self):
+        "Remove all non-data cargo."
+
+        for commodity in [c for c in self.cargo if not c.startswith('data/')]:
+            self.__remove_cargo(commodity, float('inf'))
 
     def event_collectcargo(self, entry):
         "Handle ``CollectCargo``."
